@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalService } from './services/modal/modal.service';
+import { GenericMessageComponent } from './components/generic-message/generic-message.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'custom-app';
+
+  constructor(private modalService: ModalService) {}
+
+  openModal() {
+    this.modalService.open(GenericMessageComponent);
+  }
 }
